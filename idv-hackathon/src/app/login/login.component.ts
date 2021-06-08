@@ -31,5 +31,6 @@ export class LoginComponent implements OnInit {
     }else{
       this.auth.login.next(false);
     }
+    this.loginMe();
   }
 }
