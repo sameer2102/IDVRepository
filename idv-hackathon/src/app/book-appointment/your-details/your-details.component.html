@@ -3,41 +3,134 @@
     <form [formGroup]="detailsGroup" (ngSubmit)="onSubmit()">
       <div class="col-xs-6">
         <h3>Your Details</h3>
-        <hr class="new3">
-        <br>
+        <hr class="new3" />
+        <br />
         <div>
-          <label>First Name</label><br>
-          <input type="text" class="form-control" placeholder="First Name" formControlName="firstName"/>
-        </div><br>
+          <label>First Name</label><br />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="First Name"
+            formControlName="firstName"
+          />
+        </div>
+        <br />
         <div>
-          <label>Last Name</label><br>
-          <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName"/>
-        </div><br>
+          <label>Last Name</label><br />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Last Name"
+            formControlName="lastName"
+          />
+        </div>
+        <br />
         <div>
-          <label>Telephone Number</label><br>
-          <input type="text" class="form-control" placeholder="Telephone Number" formControlName="telNumber"/>
-        </div><br>
+          <label>Telephone Number</label><br />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Telephone Number"
+            formControlName="telNumber"
+          />
+        </div>
+        <br />
         <div>
-          <label>Email Address</label><br>
-          <input type="email" class="form-control" placeholder="example@example.com" formControlName="email"/>
-        </div><br>
+          <label>Email Address</label><br />
+          <input
+            type="email"
+            class="form-control"
+            placeholder="example@example.com"
+            formControlName="email"
+          />
+        </div>
+        <br />
         <div>
-          <label>How can we help</label><br>
-          <input type="text" class="form-control" placeholder="How can we help" formControlName="canHelp"/>
-        </div><br>
+          <label>How can we help</label><br />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="How can we help"
+            formControlName="canHelp"
+          />
+        </div>
+        <br />
       </div>
-      <div class="col-xs-5" style="margin-left: 30px;">
-        <h3>Important Information</h3>
-        <hr class="new3">
-        <br>
-        <p style="color:#6D6E71">Once you complete the appointment booking,<br> You will be redirect to perform an ID verification process</p>
-        <br>
-        <span *ngIf="showError" style="color: red;">All Fields are required</span>
-        <br>
-        <button class="btn-primary btn-lg rounded-button" type="submit" style="background-color: #005A61; margin-right: 30px;">Continue to ID Verification</button>
-        <button class="btn-default btn-lg rounded-button" type="reset" style="border-color: #005A61;" (click)="getAuthenticate()">Cancel</button>
-        <br>
+      <div class="col-xs-5" style="margin-left: 30px">
+        <h3>Select a Lane</h3>
+        <hr class="new3" />
+        <br />
+        <div *ngIf="!callCompleted">
+          <p style="color: #6d6e71; text-align: center">
+            You can select from standard appointment, or a "fast track" lane.
+            <br /><br />
+            In the "Fast-Track", youwill be redirected to an ID verification
+            process via an SMS message
+          </p>
+          <br />
+          <span *ngIf="showError" style="color: red"
+            >All Fields are required</span
+          >
+          <br />
+          <button
+            class="btn-primary btn-lg rounded-button"
+            type="button"
+            style="background-color: #005a61; margin-left: 135px; width: 250px"
+          >
+            Buy Online
+          </button>
+          <br /><br />
+          <button
+            class="btn-primary btn-lg rounded-button"
+            type="submit"
+            style="
+              background-color: #005a61;
+              color: #ffe600;
+              margin-left: 135px;
+              width: 250px;
+            "
+          >
+            Buy In-Store(Fast Track)
+          </button>
+          <br /><br />
+          <button
+            class="btn-primary btn-lg rounded-button"
+            type="button"
+            style="background-color: #005a61; margin-left: 135px; width: 250px"
+          >
+            Buy In-Store
+          </button>
+          <br /><br />
+          <button
+            class="btn-default btn-lg rounded-button"
+            type="reset"
+            style="border-color: #005a61; margin-left: 135px; width: 250px"
+          >
+            Cancel
+          </button>
+          <br /><br />
+        </div>
+        <div *ngIf="callCompleted">
+          <div *ngIf="gotSuccess">
+            <p style="color: #6d6e71; text-align: center">
+                Thank You for selecting the "Fast Track" lane
+                <br><br>
+                You will receive a text message to <span style="font-weight: bold;">{{detailsGroup.controls.telNumber.value}}</span>
+                <br>To start the ID verification process on your phone
+            </p>
+            <br />
+          </div>
+          <div *ngIf="!gotSuccess">
+            <p style="color: #6d6e71; text-align: center">
+              Hmmm, we seem to have an issue <br>
+              processing the request
+              <br><br>
+              Please contact the administrator
+          </p>
+          <br />
+          </div>
+        </div>
       </div>
-  </form>
+    </form>
   </div>
 </div>

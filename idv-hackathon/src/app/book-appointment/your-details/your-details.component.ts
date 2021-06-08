@@ -12,6 +12,8 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 export class YourDetailsComponent implements OnInit {
   detailsGroup: FormGroup;
   showError:boolean=false;
+  gotSuccess:boolean=false;
+  callCompleted:boolean=false
   constructor(private httpService:HttpServiceService) { }
 
   ngOnInit(): void {
@@ -37,7 +39,7 @@ export class YourDetailsComponent implements OnInit {
     }
   }
 
-  
+
   getAuthenticate(){
 
     let data:any={
@@ -61,8 +63,20 @@ export class YourDetailsComponent implements OnInit {
       };
 
       this.httpService.authenticate(data).subscribe((response)=>{
+        this.callCompleted=true;
         console.log(response);
-      });
+        if(response.id){
+          this.gotSuccess=true;
+          console.log("DOne");
+        }
+      },(response)=>{
+        this.gotSuccess=false;
+        this.callCompleted=true;
+        console.log("SAMSAMAMSMAS",response);
+
+      }
+
+      );
   }
 
 }

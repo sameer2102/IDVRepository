@@ -9,8 +9,10 @@ import { SelectAStoreComponent } from './book-appointment/select-a-store/select-
 import { ChooseDateTimeComponent } from './book-appointment/choose-date-time/choose-date-time.component';
 import { YourDetailsComponent } from './book-appointment/your-details/your-details.component';
 import { ConfirmationComponent } from './book-appointment/confirmation/confirmation.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './auth.guard';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +22,17 @@ import { HttpClientModule } from '@angular/common/http';
     SelectAStoreComponent,
     ChooseDateTimeComponent,
     YourDetailsComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
