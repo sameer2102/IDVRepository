@@ -49,12 +49,10 @@ export class YourDetailsComponent implements OnInit {
         "processingFlow": "idv",
         "requestTypes": {
           "idFront": [
-            "camera",
-            "file"
+            "camera"
           ],
-          "idBack": [
-            "camera",
-            "file"
+          "faceCompare": [
+            "camera"
           ]
         },
         "sendSms": true,
@@ -62,12 +60,13 @@ export class YourDetailsComponent implements OnInit {
         "callbackUrl": "https://webhook.site/2dc359d5-266e-4054-8d2b-21cb41411652"
       };
 
+
       this.httpService.authenticate(data).subscribe((response)=>{
         this.callCompleted=true;
         console.log(response);
         if(response.id){
           this.gotSuccess=true;
-          console.log("DOne");
+          console.log("Done");
         }
       },(response)=>{
         this.gotSuccess=false;

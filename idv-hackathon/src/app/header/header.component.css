@@ -1,5 +1,5 @@
 .myHeader{
-  background-color: #007B85;
+  background-color: #5514B4;
   color: white;
 }
 .navbar-brand {
@@ -14,7 +14,7 @@ color:white;
 }
 
 .nav-item-text a::after {
-  background: #005A61;
+  background: #000;
   content: '';
   height: 2.8rem;
   position: absolute;
