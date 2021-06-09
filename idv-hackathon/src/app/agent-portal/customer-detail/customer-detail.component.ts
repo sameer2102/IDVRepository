@@ -19,7 +19,7 @@ export class CustomerDetailComponent implements OnInit {
     this.detailsGroup = new FormGroup({
       'firstName':new FormControl(null),
       'lastName':new FormControl(null),
-      'telNumber':new FormControl('+44',[Validators.required]),
+      'telNumber': new FormControl('+44', [Validators.required,this.validatePhone]),
       'email':new FormControl('my@email.com',Validators.email),
       'canHelp':new FormControl('Store Visit')
     });
@@ -76,4 +76,15 @@ export class CustomerDetailComponent implements OnInit {
       );
   }
 
+  validatePhone(control: FormControl): { [s: string]: boolean } {
+
+
+    let value:string=control.value;
+    if(value.length < 11 || (!value.startsWith('+'))){
+      return {'phoneNumber':true};
+    }else{
+      console.log('in Validation');
+      return null;
+    }
+  }
 }
