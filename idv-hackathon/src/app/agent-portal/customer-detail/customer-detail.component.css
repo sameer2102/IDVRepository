@@ -1,0 +1,19 @@
+hr.new3 {
+  border-top: 1px dotted black;
+}
+
+
+.rounded-button
+{
+  border-radius: 35px;
+}
+
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+.is-disabled{
+background-color: darkgrey;
+color: black;
+}

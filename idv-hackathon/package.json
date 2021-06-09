@@ -21,6 +21,7 @@
     "@angular/router": "~9.1.9",
     "@auth0/angular-jwt": "^5.0.2",
     "bootstrap": "^3.4.1",
+    "font-awesome": "^4.7.0",
     "jose": "^3.12.3",
     "jsonwebtoken": "^8.5.1",
     "node-jose": "^2.0.0",

@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
+import { AgentPortalComponent } from './agent-portal/agent-portal.component';
+import { CustomerDetailComponent } from './agent-portal/customer-detail/customer-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { LoginComponent } from './login/login.component';
     ChooseDateTimeComponent,
     YourDetailsComponent,
     ConfirmationComponent,
-    LoginComponent
+    LoginComponent,
+    AgentPortalComponent,
+    CustomerDetailComponent
   ],
   imports: [
     BrowserModule,

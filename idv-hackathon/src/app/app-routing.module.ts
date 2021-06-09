@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AgentPortalComponent } from './agent-portal/agent-portal.component';
+import { CustomerDetailComponent } from './agent-portal/customer-detail/customer-detail.component';
 import { AuthGuard } from './auth.guard';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
 import { ChooseDateTimeComponent } from './book-appointment/choose-date-time/choose-date-time.component';
@@ -20,6 +22,11 @@ const routes: Routes = [
       { path: 'chooseDate', component: ChooseDateTimeComponent,canActivate: [AuthGuard] },
       { path: 'details', component: YourDetailsComponent,canActivate: [AuthGuard] },
       { path: 'confirmation', component: ConfirmationComponent,canActivate: [AuthGuard] }
+    ]
+  },
+  {
+    path: 'agentPortal', component: AgentPortalComponent, canActivate: [AuthGuard], children: [
+      { path: 'customerDetails', component: CustomerDetailComponent, canActivate: [AuthGuard] }
     ]
   }
 ];
