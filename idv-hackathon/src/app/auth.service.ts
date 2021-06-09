@@ -6,12 +6,14 @@ import { Subject } from 'rxjs';
 })
 export class AuthService implements OnInit {
   login= new Subject();
+  afterLogin= new Subject();
   allow: boolean = false;
   constructor() {
     this.login.subscribe((value: boolean) => {
       this.allow = value;
       console.log("s",this.allow  );
     });
+    this.afterLogin.next(true);
   }
 
 

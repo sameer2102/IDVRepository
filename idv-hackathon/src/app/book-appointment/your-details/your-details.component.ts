@@ -18,11 +18,11 @@ export class YourDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.detailsGroup = new FormGroup({
-      'firstName':new FormControl(null,Validators.required),
-      'lastName':new FormControl(null,Validators.required),
-      'telNumber':new FormControl(null,Validators.required),
-      'email':new FormControl(null,Validators.email),
-      'canHelp':new FormControl(null,Validators.required)
+      'firstName':new FormControl(null),
+      'lastName':new FormControl(null),
+      'telNumber':new FormControl('+44',[Validators.required]),
+      'email':new FormControl('my@email.com',Validators.email),
+      'canHelp':new FormControl('Store Visit')
     });
   }
 
@@ -56,8 +56,7 @@ export class YourDetailsComponent implements OnInit {
           ]
         },
         "sendSms": true,
-        "shortUrl": true,
-        "callbackUrl": "https://webhook.site/2dc359d5-266e-4054-8d2b-21cb41411652"
+        "shortUrl": true
       };
 
 

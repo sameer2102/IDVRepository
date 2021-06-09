@@ -13,7 +13,11 @@ export class LoginComponent implements OnInit {
   email:any="";
   pwd:any="";
   ngOnInit(): void {
-
+    this.auth.afterLogin.subscribe((data)=>{
+      if(data){
+        this.loginMe();
+      }
+    });
   }
 
   loginMe(){
@@ -26,11 +30,11 @@ export class LoginComponent implements OnInit {
       console.log("sameer");
       this.auth.login.next(true);
       setTimeout(() => {
-        this.loginMe();
+
       }, 9000);
     }else{
       this.auth.login.next(false);
     }
-    this.loginMe();
+
   }
 }
